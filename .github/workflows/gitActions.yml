@@ -34,6 +34,8 @@ jobs:
       - name: Deploy to Firebase
         uses: w9jds/firebase-action@master
         with:
-          args: deploy --btproject-7a794 --only hosting
-        env:
-          FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
+          args: deploy --only hosting:dev
+        env: {
+          PROJECT_ID = "btproject-7a794"
+        }
+        secrets: ["FIREBASE_TOKEN"]
