@@ -37,11 +37,11 @@ export default{
     
     fetchData : function(){
         axios.get('https://data.gov.sg/api/action/datastore_search?resource_id=552b8662-3cbc-48c0-9fbb-abdc07fb377a').then(response=>{
-        this.results=response.data.result.records[0]
+        this.results=response.data.result.records
         console.log(response.data)
         console.log(this.results)
         for(let key in this.results){
-            this.chartdata.datasets[0].data.push(this.results[key])
+            this.chartdata.datasets[0].data.push(this.results[key].average_ridership)
             this.chartdata.labels.push(key+'')
             
         }

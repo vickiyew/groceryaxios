@@ -37,11 +37,11 @@ export default{
     
     fetchData : function(){
         axios.get('http://covid19.soficoop.com/country/us').then(response=>{
-        this.results=response.data.snapshots[0]
+        this.results=response.data.snapshots
         console.log(response.data)
         console.log(this.results)
         for(let key in this.results){
-            this.chartdata.datasets[0].data.push(this.results[key])
+            this.chartdata.datasets[0].data.push(this.results[key].cases)
             this.chartdata.labels.push(key+'')
             
         }
